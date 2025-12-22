@@ -13,6 +13,11 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
+    <!-- ScrollReveal.js -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
     <style>
         :root {
             --primary: #7c3aed;
@@ -108,12 +113,23 @@
         }
 
         /* ===== HERO ===== */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
         .hero {
+            position: relative;
             min-height: 100vh;
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
             gap: 3rem;
+            z-index: 1;
         }
 
         .hero-text h1 {
@@ -123,6 +139,11 @@
 
         .hero-text h1 span {
             color: var(--primary);
+        }
+
+        .hero-text #typed {
+            display: inline-block;
+            color: var(--secondary);
         }
 
         .hero-text p {
@@ -220,8 +241,8 @@
         }
 
         .about-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-8px) rotateX(5deg) scale(1.05);
+            box-shadow: 0 25px 50px rgba(124, 58, 237, 0.4);
         }
 
         /* ===== SKILLS ===== */
@@ -247,8 +268,30 @@
         }
 
         .skill-card:hover {
-            transform: translateY(-8px) scale(1.03);
+            transform: translateY(-8px) rotateX(5deg) scale(1.03);
             box-shadow: 0 20px 40px rgba(124, 58, 237, 0.25);
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            height: 8px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 10px;
+            width: 0;
+            animation: fill 2s forwards;
+        }
+
+        @keyframes fill {
+            to {
+                width: var(--width);
+            }
         }
 
         /* ===== PROJECTS ===== */
@@ -290,7 +333,7 @@
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) rotateX(5deg) scale(1.05);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
         }
 
@@ -351,6 +394,9 @@
 
 <body>
 
+    <!-- PARTICLES BACKGROUND -->
+    <div id="particles-js"></div>
+
     <!-- NAVBAR -->
     <header>
         <nav>
@@ -370,7 +416,7 @@
         <div class="hero-text">
             <h1>
                 Hello, I'm <span>Abd Alrahman Alsaadi</span><br>
-                Software Engineer & Backend Developer
+                <span id="typed"></span>
             </h1>
 
             <p>
@@ -418,31 +464,58 @@
                 <i class="fas fa-server"></i>
                 <h3>Backend Development</h3>
                 <p>REST APIs, Business Logic, System Design</p>
+                <div class="progress-bar">
+                    <div class="progress" style="--width:90%;"></div>
+                </div>
             </div>
             <div class="skill-card">
                 <i class="fab fa-laravel"></i>
                 <h3>Laravel</h3>
                 <p>Clean Architecture, Services, RBAC</p>
+                <div class="progress-bar">
+                    <div class="progress" style="--width:85%;"></div>
+                </div>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-laravel"></i>
+                    <h3>Express js</h3>
+                    <p>Clean Architecture, Services, design patterns</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="--width:85%;"></div>
+                    </div>
+                
             </div>
             <div class="skill-card">
                 <i class="fab fa-php"></i>
                 <h3>PHP</h3>
                 <p>OOP, Design Patterns, Performance</p>
+                <div class="progress-bar">
+                    <div class="progress" style="--width:80%;"></div>
+                </div>
             </div>
             <div class="skill-card">
                 <i class="fas fa-database"></i>
                 <h3>Databases</h3>
                 <p>MySQL, Database Design, Optimization</p>
+                <div class="progress-bar">
+                    <div class="progress" style="--width:85%;"></div>
+                </div>
             </div>
             <div class="skill-card">
                 <i class="fab fa-git-alt"></i>
                 <h3>Git & GitHub</h3>
                 <p>Version Control, Collaboration</p>
+                <div class="progress-bar">
+                    <div class="progress" style="--width:80%;"></div>
+                </div>
             </div>
             <div class="skill-card">
                 <i class="fas fa-shield-alt"></i>
                 <h3>Security</h3>
                 <p>Authentication, Authorization, Validation</p>
+                <div class="progress-bar">
+                    <div class="progress" style="--width:75%;"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -513,7 +586,7 @@
             </div>
             <div class="contact-card">
                 <i class="fab fa-linkedin"></i>
-                <a href="https://www.linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a>
+                <a href="https://www.linkedin.com/in/abd-alrahman-alsaadi-7a6547364?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">linkedin.com/in/AbdAlrahmanAlsaadi</a>
             </div>
         </div>
     </section>
@@ -522,6 +595,49 @@
     <footer>
         &copy; 2025 Abd Alrahman Alsaadi. All rights reserved.
     </footer>
+
+    <!-- JS -->
+    <script>
+        // ===== Typing Animation =====
+        const typedTexts = ["Software Engineer", "Backend Developer", "Laravel Specialist"];
+        let tIndex = 0;
+        let charIndex = 0;
+        const typedElement = document.getElementById("typed");
+
+        function type() {
+            if (tIndex >= typedTexts.length) tIndex = 0;
+            let current = typedTexts[tIndex];
+            typedElement.textContent = current.slice(0, charIndex++);
+            if (charIndex > current.length) {
+                charIndex = 0;
+                tIndex++;
+                setTimeout(type, 1500);
+            } else {
+                setTimeout(type, 150);
+            }
+        }
+        type();
+
+        // ===== ScrollReveal =====
+        ScrollReveal().reveal('.hero-text, .hero-img, .about-text, .about-card, .skill-card, .project-card, .contact-card', {
+            distance: '50px',
+            duration: 800,
+            easing: 'ease-out',
+            origin: 'bottom',
+            interval: 200
+        });
+
+        // ===== Particles.js =====
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 50 },
+                "size": { "value": 3 },
+                "color": { "value": "#7c3aed" },
+                "line_linked": { "enable": true, "distance": 150, "color": "#7c3aed", "opacity": 0.2, "width": 1 },
+                "move": { "enable": true, "speed": 2 }
+            }
+        });
+    </script>
 
 </body>
 
