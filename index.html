@@ -68,11 +68,6 @@
             color: var(--primary);
         }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
 
         nav ul li a {
             text-decoration: none;
@@ -376,19 +371,112 @@
             font-size: 0.9rem;
         }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 900px) {
+       /* ===========================
+   RESPONSIVE
+=========================== */
 
-            .hero,
-            .about {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
+@media (max-width:900px){
 
-            .hero-buttons {
-                justify-content: center;
-            }
-        }
+    header{
+        position:relative;
+    }
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+        padding:20px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    section{
+        padding:70px 20px;
+    }
+
+    .hero,
+    .about{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .hero{
+        min-height:auto;
+        padding-top:40px;
+    }
+
+    .hero-text h1{
+        font-size:2.2rem;
+    }
+
+    .hero-text p{
+        font-size:15px;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .hero-img{
+        order:-1;
+    }
+
+    .hero-img img{
+        width:220px;
+        height:220px;
+    }
+
+    .about-cards{
+        grid-template-columns:1fr;
+    }
+
+    .skills-grid{
+        grid-template-columns:1fr;
+    }
+
+    .projects-grid{
+        grid-template-columns:1fr;
+    }
+
+    .contact-info{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .contact-card{
+        width:100%;
+        max-width:350px;
+    }
+
+}
+
+@media (max-width:500px){
+
+    .hero-text h1{
+        font-size:1.8rem;
+    }
+
+    .section-title{
+        font-size:1.8rem;
+    }
+
+    .hero-buttons .btn{
+    width:220px;
+}
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .hero-img img{
+    width:min(220px,70vw);
+    height:min(220px,70vw);
+}
+
+}
     </style>
 </head>
 
