@@ -67,7 +67,11 @@
             font-weight: 700;
             color: var(--primary);
         }
-
+nav ul{
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
 
         nav ul li a {
             text-decoration: none;
@@ -371,111 +375,117 @@
             font-size: 0.9rem;
         }
 
-       /* ===========================
+  /* =========================
    RESPONSIVE
-=========================== */
+========================= */
 
-@media (max-width:900px){
+@media (max-width: 900px) {
 
     header{
-        position:relative;
+        position: relative;
     }
 
     nav{
-        flex-direction:column;
-        gap:15px;
-        padding:20px;
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
     }
 
     nav ul{
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
     }
 
     section{
-        padding:70px 20px;
+        padding: 80px 20px;
     }
 
     .hero,
     .about{
-        grid-template-columns:1fr;
-        text-align:center;
+        grid-template-columns: 1fr;
+        text-align: center;
     }
 
     .hero{
-        min-height:auto;
-        padding-top:40px;
+        min-height: auto;
+        padding-top: 40px;
     }
 
     .hero-text h1{
-        font-size:2.2rem;
+        font-size: 2.2rem;
     }
 
     .hero-text p{
-        font-size:15px;
+        font-size: .95rem;
     }
+.hero-buttons{
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
 
-    .hero-buttons{
-        justify-content:center;
-        flex-wrap:wrap;
-    }
+.hero-buttons .btn{
+    width: 100%;
+    max-width: 280px;
+}
 
     .hero-img{
-        order:-1;
+        order: -1;
     }
 
     .hero-img img{
-        width:220px;
-        height:220px;
+        width: 220px;
+        height: 220px;
     }
+    .about{
+    gap:40px;
+}
+
+section{
+    overflow:hidden;
+}
 
     .about-cards{
-        grid-template-columns:1fr;
+        grid-template-columns: 1fr;
     }
 
-    .skills-grid{
-        grid-template-columns:1fr;
+    .contact-info{
+        flex-direction: column;
+        align-items: center;
     }
 
+    .contact-card{
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 600px){
+
+    .hero-text h1{
+        font-size: 1.8rem;
+    }
+
+    .section-title{
+        font-size: 1.8rem;
+    }
+
+    .btn{
+    width:100%;
+    max-width:280px;
+}
+
+    .skills-grid,
     .projects-grid{
         grid-template-columns:1fr;
     }
 
-    .contact-info{
-        flex-direction:column;
-        align-items:center;
-    }
-
-    .contact-card{
-        width:100%;
-        max-width:350px;
-    }
-
-}
-
-@media (max-width:500px){
-
-    .hero-text h1{
-        font-size:1.8rem;
-    }
-
-    .section-title{
-        font-size:1.8rem;
-    }
-
-    .hero-buttons .btn{
-    width:220px;
-}
-    .hero-buttons{
-        flex-direction:column;
-    }
-
     .hero-img img{
-    width:min(220px,70vw);
-    height:min(220px,70vw);
-}
-
+        width:180px;
+        height:180px;
+    }
 }
     </style>
 </head>
@@ -659,30 +669,7 @@
 
     </div>
 </section>
-<section id="technologies">
-    <h2 class="section-title">Core Technologies</h2>
 
-    <div class="skills-grid">
-
-        <div class="skill-card">Laravel</div>
-        <div class="skill-card">PHP</div>
-        <div class="skill-card">MySQL</div>
-        <div class="skill-card">REST API</div>
-        <div class="skill-card">Laravel Sanctum</div>
-        <div class="skill-card">Spatie Permission</div>
-        <div class="skill-card">Redis</div>
-        <div class="skill-card">Firebase</div>
-        <div class="skill-card">Stripe</div>
-        <div class="skill-card">Pusher</div>
-        <div class="skill-card">Gemini API</div>
-        <div class="skill-card">OpenAI API</div>
-        <div class="skill-card">Git</div>
-        <div class="skill-card">GitHub</div>
-        <div class="skill-card">Swagger</div>
-        <div class="skill-card">Postman</div>
-
-    </div>
-</section>
 
     <!-- PROJECTS -->
     <section id="projects">
