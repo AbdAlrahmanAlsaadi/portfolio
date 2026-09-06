@@ -1,828 +1,851 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Abd Alrahman Alsaadi | Portfolio</title>
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-    <!-- ScrollReveal.js -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <!-- Particles.js -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
-    <style>
-        :root {
-            --primary: #7c3aed;
-            --secondary: #22c55e;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gray: #94a3b8;
-            --glass: rgba(255, 255, 255, 0.08);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: radial-gradient(circle at top, #1e293b, #020617);
-            color: var(--light);
-            overflow-x: hidden;
-        }
-
-        /* ===== NAVBAR ===== */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            backdrop-filter: blur(12px);
-            background: rgba(2, 6, 23, 0.6);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav .logo {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-nav ul{
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-}
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--light);
-            font-weight: 500;
-            position: relative;
-        }
-
-        nav ul li a::after {
-            content: "";
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: 0.3s;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        /* ===== SECTIONS ===== */
-        section {
-            padding: 120px 2rem 80px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* ===== HERO ===== */
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
-        }
-
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 3rem;
-            z-index: 1;
-        }
-
-        .hero-text h1 {
-            font-size: 3rem;
-            line-height: 1.2;
-        }
-
-        .hero-text h1 span {
-            color: var(--primary);
-        }
-
-        .hero-text #typed {
-            display: inline-block;
-            color: var(--secondary);
-        }
-
-        .hero-text p {
-            margin: 1.5rem 0;
-            color: var(--gray);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .btn {
-            padding: 0.8rem 1.8rem;
-            border-radius: 30px;
-            border: none;
-            cursor: pointer;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--light);
-            border: 1px solid var(--primary);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary);
-        }
-
-        .hero-img {
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-
-        .hero-img img {
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--primary);
-            animation: float 4s ease-in-out infinite;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-15px);
-            }
-        }
-
-        /* ===== ABOUT ===== */
-        .about {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about p {
-            color: var(--gray);
-            line-height: 1.8;
-        }
-
-        .about-cards {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        .about-card {
-            background: var(--glass);
-            padding: 1.5rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.3s;
-        }
-
-        .about-card:hover {
-            transform: translateY(-8px) rotateX(5deg) scale(1.05);
-            box-shadow: 0 25px 50px rgba(124, 58, 237, 0.4);
-        }
-
-        /* ===== SKILLS ===== */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-card {
-            background: var(--glass);
-            padding: 2rem 1.5rem;
-            border-radius: 20px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.3s;
-        }
-
-        .skill-card i {
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-8px) rotateX(5deg) scale(1.03);
-            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.25);
-        }
-
-        .progress-bar {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            height: 8px;
-            margin-top: 10px;
-            overflow: hidden;
-        }
-
-        .progress {
-            height: 100%;
-            background: var(--primary);
-            border-radius: 10px;
-            width: 0;
-            animation: fill 2s forwards;
-        }
-
-        @keyframes fill {
-            to {
-                width: var(--width);
-            }
-        }
-
-        /* ===== PROJECTS ===== */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--glass);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.3s;
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-content p {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin: 0.8rem 0 1.2rem;
-        }
-
-        .project-links a {
-            text-decoration: none;
-            margin-right: 1rem;
-            color: var(--primary);
-            font-weight: 500;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px) rotateX(5deg) scale(1.05);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-        }
-
-        /* ===== CONTACT ===== */
-        .contact {
-            text-align: center;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .contact-card {
-            background: var(--glass);
-            padding: 1.5rem 2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            min-width: 260px;
-            transition: 0.3s;
-        }
-
-        .contact-card a {
-            color: #f8fafc;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .contact-card a:hover {
-            color: #7c3aed;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-  /* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 900px) {
-
-    header{
-        position: relative;
-    }
-
-    nav{
-        flex-direction: column;
-        gap: 15px;
-        padding: 20px;
-    }
-
-    nav ul{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    section{
-        padding: 80px 20px;
-    }
-
-    .hero,
-    .about{
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .hero{
-        min-height: auto;
-        padding-top: 40px;
-    }
-
-    .hero-text h1{
-        font-size: 2.2rem;
-    }
-
-    .hero-text p{
-        font-size: .95rem;
-    }
-.hero-buttons{
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.hero-buttons .btn{
-    width: 100%;
-    max-width: 280px;
-}
-
-    .hero-img{
-        order: -1;
-    }
-
-    .hero-img img{
-        width: 220px;
-        height: 220px;
-    }
-    .about{
-    gap:40px;
-}
-
-section{
-    overflow:hidden;
-}
-
-    .about-cards{
-        grid-template-columns: 1fr;
-    }
-
-    .contact-info{
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .contact-card{
-        width: 100%;
-        max-width: 350px;
-    }
-}
-
-@media (max-width: 600px){
-
-    .hero-text h1{
-        font-size: 1.8rem;
-    }
-
-    .section-title{
-        font-size: 1.8rem;
-    }
-
-    .btn{
-    width:100%;
-    max-width:280px;
-}
-
-    .skills-grid,
-    .projects-grid{
-        grid-template-columns:1fr;
-    }
-
-    .hero-img img{
-        width:180px;
-        height:180px;
-    }
-}
-    </style>
-</head>
-
-<body>
-
-    <!-- PARTICLES BACKGROUND -->
-    <div id="particles-js"></div>
-
-    <!-- NAVBAR -->
-    <header>
-        <nav>
-            <div class="logo">Abd Alrahman</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- HERO -->
-    <section class="hero" id="home">
-        <div class="hero-text">
-            <h1>
-                Hello, I'm <span>Abd Alrahman Alsaadi</span><br>
-                <span id="typed"></span>
-            </h1>
-
-            <p>
-                Software Engineer specializing in backend development with Laravel and PHP.
-                Experienced in building scalable web applications, designing RESTful APIs,
-                and developing secure, high-performance systems following Clean Architecture
-                and SOLID principles.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#projects"><button class="btn btn-primary">View Projects</button></a>
-                <a href="#contact"><button class="btn btn-outline">Contact Me</button></a>
-                <a href="Abd Alrahman Alsaadi.pdf" download><button class="btn btn-primary">Download CV</button></a>
+    <title>Abd Alrahman Alsaadi | Full-Stack Software Engineer</title>
+    <meta
+      name="description"
+      content="Full-Stack Software Engineer specializing in Laravel, PHP, and React. Builder of scalable web applications, secure RESTful APIs, and AI-integrated systems."
+    />
+    <meta
+      name="keywords"
+      content="Full-Stack Developer, Laravel Developer, React Developer, PHP Developer, Software Engineer, API Development, Damascus, Remote Developer"
+    />
+    <meta name="author" content="Abd Alrahman Alsaadi" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo">
+          <span class="logo-icon">AA</span>
+          <span class="logo-text">Abd Alrahman</span>
+        </div>
+        <ul class="nav-menu">
+          <li>
+            <a href="#home" class="nav-link"
+              ><i class="fas fa-home"></i> Home</a
+            >
+          </li>
+          <li>
+            <a href="#skills" class="nav-link"
+              ><i class="fas fa-code"></i> Skills</a
+            >
+          </li>
+          <li>
+            <a href="#projects" class="nav-link"
+              ><i class="fas fa-project-diagram"></i> Projects</a
+            >
+          </li>
+          <li>
+            <a href="#education" class="nav-link"
+              ><i class="fas fa-graduation-cap"></i> Education</a
+            >
+          </li>
+          <li>
+            <a href="#contact" class="btn-contact"
+              ><i class="fas fa-paper-plane"></i> Contact</a
+            >
+          </li>
+        </ul>
+        <div class="mobile-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-text">Full-Stack Developer</span>
+            <span class="badge-dot"></span>
+            <span class="remote-badge-light">
+              <i class="fas fa-globe"></i> Remote
+            </span>
+          </div>
+          <h1 class="hero-title">
+            Abd Alrahman Alsaadi
+            <span class="title-highlight">Software Engineer</span>
+          </h1>
+          <h2 class="hero-subtitle">
+            <i class="fas fa-arrow-right"></i> Full-Stack Developer | Laravel
+            &amp; React Engineer
+          </h2>
+
+          <!-- Stats Row -->
+          <div class="hero-stats">
+            <div class="hero-stat-item">
+              <span class="stat-number">4+</span>
+              <span class="stat-label">Featured Projects</span>
             </div>
-        </div>
-        <div class="hero-img">
-            <img src="images/profile.png" alt="Profile Photo">
-        </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="about">
-        <div class="about-text">
-            <h2 class="section-title">About Me</h2>
-            <p>
-                I'm a Software Engineer specializing in backend development with Laravel and PHP.
-                I build scalable web applications, secure RESTful APIs, and maintainable software
-                architectures following SOLID principles and clean architecture. I enjoy solving
-                real-world problems by developing reliable, high-performance backend systems.
-            </p>
-        </div>
-        <div class="about-cards">
-            <div class="about-card">🏗️ Scalable Backend Systems</div>
-            
-            <div class="about-card">🔒 Secure RESTful APIs</div>
-            
-            <div class="about-card">⚡ Performance Optimization</div>
-            
-            <div class="about-card">🤖 AI-Powered Solutions</div>
-        </div>
-    </section>
-
-    <!-- SKILLS -->
-<section id="skills">
-    <h2 class="section-title">Skills</h2>
-
-    <div class="skills-grid">
-
-        <!-- Backend -->
-        <div class="skill-card">
-            <i class="fas fa-server"></i>
-            <h3>Backend Development</h3>
-            <p>REST APIs, Business Logic, System Design</p>
-            <div class="progress-bar">
-                <div class="progress" style="--width:90%;"></div>
+            <div class="hero-stat-item">
+              <span class="stat-number">5+</span>
+              <span class="stat-label">API Integrations</span>
             </div>
-        </div>
-
-        <div class="skill-card">
-            <i class="fab fa-laravel"></i>
-            <h3>Laravel</h3>
-            <p>Clean Architecture, Services, RBAC</p>
-            <div class="progress-bar">
-                <div class="progress" style="--width:85%;"></div>
+            <div class="hero-stat-item">
+              <span class="stat-number">10+</span>
+              <span class="stat-label">Core Technologies</span>
             </div>
-        </div>
-
-        <div class="skill-card">
-            <i class="fas fa-network-wired"></i>
-            <h3>RESTful APIs</h3>
-            <p>API Design, Authentication, Documentation</p>
-        
-            <div class="progress-bar">
-                <div class="progress" style="--width:90%;"></div>
+            <div class="hero-stat-item">
+              <span class="stat-number">2026</span>
+              <span class="stat-label">Expected Graduation</span>
             </div>
-        </div>
-        <div class="skill-card">
-            <i class="fas fa-robot"></i>
-            <h3>AI Integration</h3>
-            <p>Gemini API, OpenAI API</p>
-        
-            <div class="progress-bar">
-                <div class="progress" style="--width:75%;"></div>
+          </div>
+
+          <!-- Professional Summary Box -->
+          <div class="description-box">
+            <div class="box-header">
+              <div class="box-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <span class="box-title">Engineering Snapshot</span>
             </div>
-        </div>
-        <div class="skill-card">
-            <i class="fas fa-plug"></i>
-            <h3>Integrations</h3>
-            <p>Stripe API, Firebase, Pusher</p>
-        
-            <div class="progress-bar">
-                <div class="progress" style="--width:80%;"></div>
+            <div class="box-content">
+              <p class="hero-description">
+                I turn complex business requirements into
+                <strong>secure, scalable web products</strong>. My core strength is
+                backend engineering with <strong>Laravel</strong> and
+                <strong>PHP</strong>, supported by practical experience building
+                responsive interfaces with <strong>React</strong> and JavaScript.
+                I care about clean architecture, reliable
+                <strong>RESTful APIs</strong>, and systems that remain easy to
+                maintain as they grow. Currently completing my Information
+                Technology Engineering degree at Damascus University.
+              </p>
             </div>
-        </div>
+          </div>
 
-        <div class="skill-card">
-            <i class="fab fa-php"></i>
-            <h3>PHP</h3>
-            <p>OOP, Design Patterns, Performance</p>
-            <div class="progress-bar">
-                <div class="progress" style="--width:80%;"></div>
-            </div>
-        </div>
-
-        <!-- Databases -->
-        <div class="skill-card">
-            <i class="fas fa-database"></i>
-            <h3>Databases</h3>
-            <p>MySQL, Database Design, Optimization</p>
-            <div class="progress-bar">
-                <div class="progress" style="--width:85%;"></div>
-            </div>
-        </div>
-
-        <!-- DevOps -->
-        <div class="skill-card">
-            <i class="fab fa-docker"></i>
-            <h3>Docker</h3>
-            <p>Containerization, Dockerfiles, Multi-stage Builds</p>
-            <div class="progress-bar">
-                <div class="progress" style="--width:80%;"></div>
-            </div>
-        </div>
-
-        <div class="skill-card">
-            <i class="fas fa-infinity"></i>
-            <h3>CI / CD</h3>
-            <p>GitHub Actions, Automated Testing, Deployment Pipelines</p>
-            <div class="progress-bar">
-                <div class="progress" style="--width:75%;"></div>
-            </div>
-        </div>
-
-        <!-- Tools & Security -->
-        <div class="skill-card">
-            <i class="fab fa-git-alt"></i>
-            <h3>Git & GitHub</h3>
-            <p>Version Control, Collaboration</p>
-            <div class="progress-bar">
-                <div class="progress" style="--width:80%;"></div>
-            </div>
-        </div>
-
-        <div class="skill-card">
-            <i class="fas fa-shield-alt"></i>
-            <h3>Security</h3>
-            <p>Authentication, Authorization, Validation</p>
-            <div class="progress-bar">
-                <div class="progress" style="--width:75%;"></div>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-
-    <!-- PROJECTS -->
-    <section id="projects">
-        <h2 class="section-title">Projects</h2>
-        <div class="projects-grid">
-            <!-- Construction Project -->
-            <div class="project-card">
-                <img src="images/construction.png" alt="Construction Finishing Management System">
-            
-                <div class="project-content">
-            
-                    <h3>Construction Finishing Management System</h3>
-            
-                    <p>
-                        Enterprise backend platform for managing construction finishing projects,
-                        including project planning, resource management, contract administration,
-                        financial tracking, AI-powered engineering recommendations, and real-time
-                        notifications.
-                    </p>
-            
-                    <p>
-                        <strong>Tech Stack:</strong><br>
-                        Laravel • PHP • MySQL • Gemini API • Firebase • REST API
-                    </p>
-            
-                    <div class="project-links">
-            
-                        <a href="https://github.com/AbdAlrahmanAlsaadi/graduation" target="_blank">
-                            GitHub
-                        </a>
-            
-                    </div>
-            
-                </div>
-            </div>
-
-            <!-- Project 1 -->
-            <div class="project-card">
-                <img src="images/project1.png" alt="Project 1">
-                <div class="project-content">
-                    <h3>Shipping Management System</h3>
-                    <p>Scalable logistics backend supporting shipment lifecycle management,
-                    geolocation-based shipment assignment, Stripe payments, QR verification,
-                    real-time notifications, and driver dispatch workflows.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/AbdAlrahmanAlsaadi/ShippingCompany" target="_blank">GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="project-card">
-                <img src="images/project2.png" alt="Project 2">
-                <div class="project-content">
-                    <h3>Complaint Management System</h3>
-                    <p>
-                        Secure Laravel API for managing citizen complaints with authentication,
-                        role-based access control, audit logging, Redis caching, Firebase
-                        notifications, and scalable complaint workflows.
-                    </p>
-                    <div class="project-links">
-                        <a href="https://github.com/Wiaam409/Complaint-system" target="_blank">GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- MORE PROJECTS BUTTON -->
-        <div style="text-align: center; margin-top: 2.5rem;">
-            <a href="https://github.com/AbdAlrahmanAlsaadi" target="_blank">
-                <button class="btn btn-primary">More Projects</button>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">
+              <i class="fas fa-envelope"></i> Hire Me
             </a>
+            <a href="Abd-Alrahman-Alsaadi-CV.pdf" class="btn btn-secondary" download>
+              <i class="fas fa-download"></i> Download CV
+            </a>
+            <a href="#projects" class="btn btn-outline">
+              <i class="fas fa-eye"></i> View Projects
+            </a>
+          </div>
+          <div class="hero-contact">
+            <a href="mailto:alsaadiabdalrahman5@gmail.com" class="contact-item">
+              <i class="fas fa-envelope"></i> alsaadiabdalrahman5@gmail.com
+            </a>
+            <a href="tel:+963994493352" class="contact-item">
+              <i class="fas fa-phone"></i> +963 994 493 352
+            </a>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i> Damascus, Syria
+            </div>
+          </div>
         </div>
+        <div class="hero-image">
+          <div class="profile-image">
+            <img
+              src="images/profile.jpg"
+              alt="Abd Alrahman Alsaadi"
+              id="profile-pic"
+              onerror="this.style.display='none'; document.getElementById('profile-fallback').style.display='flex';"
+            />
+            <div class="profile-fallback" id="profile-fallback">AA</div>
+            <div class="image-overlay">
+              <div class="overlay-content">
+                <h3>Abd Alrahman Alsaadi</h3>
+                <p>Full-Stack Specialist</p>
+                <div class="image-stats">
+                  <div class="stat">
+                    <span class="stat-number">4+</span>
+                    <span class="stat-label">Projects</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Tech Stack</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tech-stack">
+            <div class="tech-item">
+              <i class="fab fa-laravel"></i>
+              <span>Laravel</span>
+            </div>
+            <div class="tech-item">
+              <i class="fab fa-php"></i>
+              <span>PHP</span>
+            </div>
+            <div class="tech-item">
+              <i class="fab fa-react"></i>
+              <span>React</span>
+            </div>
+            <div class="tech-item">
+              <i class="fab fa-js"></i>
+              <span>JavaScript</span>
+            </div>
+            <div class="tech-item">
+              <i class="fas fa-database"></i>
+              <span>MySQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="contact">
-        <h2 class="section-title">Contact Me</h2>
-        <p>
-            I’m always open to backend-focused roles, software engineering opportunities, and challenging projects. Feel
-            free to contact me anytime.
-        </p>
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Technical Skills</h2>
+          <p class="section-subtitle">
+            A well-rounded stack across backend, frontend, data, and DevOps
+          </p>
+        </div>
 
-        <div class="contact-info">
+        <div class="skills-grid">
+          <!-- Programming Languages -->
+          <div class="skill-category">
+            <div class="category-header">
+              <i class="fas fa-laptop-code"></i>
+              <h3>Programming Languages</h3>
+            </div>
+            <div class="skill-items">
+              <div class="skill-item">
+                <span class="skill-name">PHP</span>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 92%"></div>
+                </div>
+                <span class="skill-percent">92%</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">JavaScript</span>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 85%"></div>
+                </div>
+                <span class="skill-percent">85%</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">HTML5 &amp; CSS3</span>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 88%"></div>
+                </div>
+                <span class="skill-percent">88%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Backend & Frameworks -->
+          <div class="skill-category">
+            <div class="category-header">
+              <i class="fas fa-server"></i>
+              <h3>Backend &amp; Frameworks</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag expert">Laravel</span>
+              <span class="skill-tag expert">RESTful APIs</span>
+              <span class="skill-tag expert">Laravel Sanctum</span>
+              <span class="skill-tag expert">MVC</span>
+              <span class="skill-tag expert">Authentication &amp; Authorization</span>
+              <span class="skill-tag advanced">Service Layer Architecture</span>
+              <span class="skill-tag advanced">SOLID Principles</span>
+            </div>
+          </div>
+
+          <!-- Frontend Development -->
+          <div class="skill-category">
+            <div class="category-header">
+              <i class="fas fa-desktop"></i>
+              <h3>Frontend Development</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag expert">React</span>
+              <span class="skill-tag advanced">React Router</span>
+              <span class="skill-tag expert">Responsive Web Design</span>
+              <span class="skill-tag expert">HTML5</span>
+              <span class="skill-tag expert">CSS3</span>
+            </div>
+          </div>
+
+          <!-- Databases -->
+          <div class="skill-category">
+            <div class="category-header">
+              <i class="fas fa-database"></i>
+              <h3>Databases &amp; Design</h3>
+            </div>
+            <div class="skill-items">
+              <div class="skill-item">
+                <span class="skill-name">MySQL</span>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 90%"></div>
+                </div>
+                <span class="skill-percent">90%</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">PostgreSQL</span>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 80%"></div>
+                </div>
+                <span class="skill-percent">80%</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Database Design</span>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 85%"></div>
+                </div>
+                <span class="skill-percent">85%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI & Integrations -->
+          <div class="skill-category">
+            <div class="category-header">
+              <i class="fas fa-robot"></i>
+              <h3>AI &amp; Integrations</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag expert">Stripe API</span>
+              <span class="skill-tag expert">Pusher</span>
+              <span class="skill-tag advanced">Gemini API</span>
+              <span class="skill-tag advanced">OpenAI API</span>
+              <span class="skill-tag advanced">Firebase Cloud Messaging</span>
+            </div>
+          </div>
+
+          <!-- Data Analysis & Visualization -->
+          <div class="skill-category">
+            <div class="category-header">
+              <i class="fas fa-chart-line"></i>
+              <h3>Data Analysis &amp; Visualization</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag advanced">Excel</span>
+              <span class="skill-tag advanced">Power BI</span>
+              <span class="skill-tag intermediate">Power Query</span>
+              <span class="skill-tag advanced">Data Cleaning</span>
+              <span class="skill-tag advanced">Data Visualization</span>
+            </div>
+          </div>
+
+          <!-- Deployment & DevOps -->
+          <div class="skill-category">
+            <div class="category-header">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <h3>Deployment &amp; DevOps</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag advanced">Docker</span>
+              <span class="skill-tag advanced">GitHub Actions (CI/CD)</span>
+              <span class="skill-tag intermediate">Load Balancing</span>
+            </div>
+          </div>
+
+          <!-- Tools -->
+          <div class="skill-category">
+            <div class="category-header">
+              <i class="fas fa-cogs"></i>
+              <h3>Tools &amp; Practices</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag expert">Git</span>
+              <span class="skill-tag expert">GitHub</span>
+              <span class="skill-tag expert">Postman</span>
+              <span class="skill-tag advanced">Swagger API</span>
+              <span class="skill-tag advanced">Apidog</span>
+              <span class="skill-tag advanced">Agile Development</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-subtitle">
+            Full-stack systems spanning APIs, dashboards, and AI-assisted
+            features
+          </p>
+        </div>
+
+        <div class="projects-timeline">
+          <!-- Project 1 - Construction Finishing Management System -->
+          <div class="project-timeline-item featured-project">
+            <div class="timeline-date">
+              <span class="date-month">Jan</span>
+              <span class="date-year">2026 – Present</span>
+            </div>
+            <div class="project-card">
+              <div class="project-header">
+                <div class="project-title-wrapper">
+                  <h3 class="project-title">
+                    Construction Finishing Management System
+                  </h3>
+                </div>
+                <span class="project-role">Full-Stack Developer (Laravel + AI)</span>
+              </div>
+              <div class="project-body">
+                <p class="project-description">
+                  A scalable Laravel platform for managing construction
+                  finishing projects — covering project planning, resource
+                  management, contract administration, financial tracking,
+                  and AI-assisted decision support for engineering teams.
+                </p>
+                <div class="project-features">
+                  <h4>Key Contributions:</h4>
+                  <ul>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Built secure
+                      RESTful APIs with authentication and role-based access
+                      control (RBAC) for multiple user roles
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Developed
+                      AI-assisted features for project analysis, engineering
+                      recommendations, and construction image visualization
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Integrated
+                      real-time notifications and project update workflows
+                      for stakeholder communication
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Applied SOLID
+                      principles and service-oriented design for a scalable,
+                      maintainable backend
+                    </li>
+                  </ul>
+                </div>
+                <div class="project-tech">
+                  <span class="tech-tag">Laravel</span>
+                  <span class="tech-tag">PHP</span>
+                  <span class="tech-tag">MySQL</span>
+                  <span class="tech-tag">RBAC</span>
+                  <span class="tech-tag">Gemini API</span>
+                  <span class="tech-tag">Service Layer</span>
+                </div>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/AbdAlrahmanAlsaadi/graduation"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="project-link"
+                  >
+                    <i class="fab fa-github"></i> Repository
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 - Pharmacy Management Web Application -->
+          <div class="project-timeline-item">
+            <div class="timeline-date">
+              <span class="date-month">2026</span>
+              <span class="date-year">React Project</span>
+            </div>
+            <div class="project-card">
+              <div class="project-header">
+                <h3 class="project-title">
+                  Pharmacy Management Web Application
+                </h3>
+                <span class="project-role">Frontend Developer (React)</span>
+              </div>
+              <div class="project-body">
+                <p class="project-description">
+                  A responsive React-based web application for managing
+                  pharmacy operations and medication inventory, built with a
+                  modular, component-based architecture.
+                </p>
+                <div class="project-features">
+                  <h4>Key Contributions:</h4>
+                  <ul>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Created reusable
+                      React components structured around a modular
+                      architecture
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Built dynamic
+                      interfaces for managing medicines, products, categories,
+                      and pharmacy data
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Integrated frontend
+                      workflows with RESTful APIs for data retrieval and
+                      real-time interactions
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Applied responsive
+                      design principles for a consistent experience across
+                      desktop and mobile
+                    </li>
+                  </ul>
+                </div>
+                <div class="project-tech">
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">React Router</span>
+                  <span class="tech-tag">REST API</span>
+                  <span class="tech-tag">Responsive Design</span>
+                </div>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/AbdAlrahmanAlsaadi/PharmacyWeb"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="project-link"
+                  >
+                    <i class="fab fa-github"></i> Repository
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 - Complaint Management System -->
+          <div class="project-timeline-item">
+            <div class="timeline-date">
+              <span class="date-month">Jan</span>
+              <span class="date-year">2026</span>
+            </div>
+            <div class="project-card">
+              <div class="project-header">
+                <h3 class="project-title">Complaint Management System</h3>
+                <span class="project-role">Backend Developer (Laravel API)</span>
+              </div>
+              <div class="project-body">
+                <p class="project-description">
+                  A secure Laravel API for a citizen complaint management
+                  system, engineered with a focus on security, scalability,
+                  and maintainability.
+                </p>
+                <div class="project-features">
+                  <h4>Key Contributions:</h4>
+                  <ul>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Configured
+                      authentication with Laravel Sanctum and role-based
+                      access control using Spatie Permissions
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Managed the full
+                      complaint workflow with reliable notification handling
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Improved data
+                      integrity through database transactions and audit
+                      logging
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Optimized
+                      performance with Redis caching, pagination, and
+                      real-time FCM notifications
+                    </li>
+                  </ul>
+                </div>
+                <div class="project-tech">
+                  <span class="tech-tag">Laravel</span>
+                  <span class="tech-tag">Sanctum</span>
+                  <span class="tech-tag">Spatie Permissions</span>
+                  <span class="tech-tag">Redis</span>
+                  <span class="tech-tag">Firebase FCM</span>
+                </div>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/Wiaam409/Complaint-system"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="project-link"
+                  >
+                    <i class="fab fa-github"></i> Repository
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 - Shipping & Logistics Management System -->
+          <div class="project-timeline-item">
+            <div class="timeline-date">
+              <span class="date-month">Sep</span>
+              <span class="date-year">2025</span>
+            </div>
+            <div class="project-card">
+              <div class="project-header">
+                <h3 class="project-title">
+                  Shipping &amp; Logistics Management System
+                </h3>
+                <span class="project-role">Backend Developer (Laravel API)</span>
+              </div>
+              <div class="project-body">
+                <p class="project-description">
+                  A scalable RESTful API for a multi-center shipping and
+                  logistics platform, managing the full shipment lifecycle
+                  from booking to final delivery.
+                </p>
+                <div class="project-features">
+                  <h4>Key Contributions:</h4>
+                  <ul>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Automated
+                      geolocation-based shipment assignment and driver
+                      dispatch workflows
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Implemented
+                      QR/barcode verification to streamline logistics
+                      operations
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Integrated Stripe
+                      payments, Pusher real-time notifications, and Laravel
+                      Queues for async processing
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Designed a modular
+                      service-layer architecture with Sanctum, Spatie
+                      Permissions, and optimized queries
+                    </li>
+                  </ul>
+                </div>
+                <div class="project-tech">
+                  <span class="tech-tag">Laravel</span>
+                  <span class="tech-tag">Stripe</span>
+                  <span class="tech-tag">Pusher</span>
+                  <span class="tech-tag">Laravel Queues</span>
+                  <span class="tech-tag">Sanctum</span>
+                </div>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/AbdAlrahmanAlsaadi/ShippingCompany"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="project-link"
+                  >
+                    <i class="fab fa-github"></i> Repository
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="projects-more">
+          <a
+            href="https://github.com/AbdAlrahmanAlsaadi"
+            target="_blank"
+            rel="noreferrer"
+            class="btn btn-primary"
+          >
+            <i class="fab fa-github"></i> View More on GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Education &amp; Languages</h2>
+          <p class="section-subtitle">
+            Academic background and language proficiency
+          </p>
+        </div>
+
+        <div class="education-content">
+          <div class="education-card">
+            <div class="edu-icon">
+              <i class="fas fa-university"></i>
+            </div>
+            <div class="edu-details">
+              <h3 class="edu-title">Damascus University</h3>
+              <div class="edu-subtitle">
+                Bachelor of Information Technology Engineering
+              </div>
+              <div class="edu-meta">
+                <span
+                  ><i class="fas fa-calendar"></i> 2021 – 2026 (Expected)</span
+                >
+                <span
+                  ><i class="fas fa-map-marker-alt"></i> Damascus,
+                  Syria</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="languages-card">
+            <div class="lang-icon">
+              <i class="fas fa-language"></i>
+            </div>
+            <div class="lang-details">
+              <h3 class="lang-title">Language Proficiency</h3>
+              <div class="language-items">
+                <div class="language-item">
+                  <div class="lang-info">
+                    <span class="lang-name">Arabic</span>
+                    <span class="lang-level-text">Native</span>
+                  </div>
+                  <div class="lang-visual">
+                    <div class="lang-bar">
+                      <div class="lang-progress" style="width: 100%"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="language-item">
+                  <div class="lang-info">
+                    <span class="lang-name">English</span>
+                    <span class="lang-level-text">Professional Working</span>
+                  </div>
+                  <div class="lang-visual">
+                    <div class="lang-bar">
+                      <div class="lang-progress" style="width: 75%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-subtitle">
+            Let's discuss your next project or opportunity
+          </p>
+        </div>
+
+        <div class="contact-content">
+          <div class="contact-info">
             <div class="contact-card">
+              <div class="contact-icon">
                 <i class="fas fa-envelope"></i>
-                <a href="mailto:alsaadiabdalrahman5@gmail.com">alsaadiabdalrahman5@gmail.com</a>
+              </div>
+              <div class="contact-details">
+                <h3>Email</h3>
+                <a
+                  href="mailto:alsaadiabdalrahman5@gmail.com"
+                  class="contact-link"
+                >
+                  alsaadiabdalrahman5@gmail.com
+                </a>
+              </div>
             </div>
+
             <div class="contact-card">
-                <i class="fab fa-whatsapp"></i>
-                <a href="https://wa.me/963994493352" target="_blank">+963 99 449 3352</a>
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Phone</h3>
+                <a href="tel:+963994493352" class="contact-link">
+                  +963 994 493 352
+                </a>
+              </div>
             </div>
+
             <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Location</h3>
+                <span class="contact-text">Damascus, Syria</span>
+                <span class="remote-badge">Open to Remote</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-social">
+            <h3>Connect &amp; Follow</h3>
+            <div class="social-grid">
+              <a
+                href="https://github.com/AbdAlrahmanAlsaadi"
+                target="_blank"
+                rel="noreferrer"
+                class="social-card github"
+              >
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/abd-alrahman-alsaadi-7a6547364"
+                target="_blank"
+                rel="noreferrer"
+                class="social-card linkedin"
+              >
                 <i class="fab fa-linkedin"></i>
-                <a href="https://www.linkedin.com/in/abd-alrahman-alsaadi-7a6547364?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">linkedin.com/in/AbdAlrahmanAlsaadi</a>
+                <span>LinkedIn</span>
+              </a>
+              <a
+                href="https://wa.me/963994493352"
+                target="_blank"
+                rel="noreferrer"
+                class="social-card whatsapp"
+              >
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+              </a>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-        &copy; 2025 Abd Alrahman Alsaadi. All rights reserved.
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="footer-logo">AA</div>
+            <h3>Abd Alrahman Alsaadi</h3>
+            <p>Full-Stack Software Engineer</p>
+            <p class="remote-tag">
+              <i class="fas fa-globe"></i> Available for Remote Work
+            </p>
+          </div>
+          <div class="footer-links">
+            <h4>Quick Navigation</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#education">Education</a></li>
+            </ul>
+          </div>
+          <div class="footer-cta">
+            <h4>Start a Project</h4>
+            <a href="mailto:alsaadiabdalrahman5@gmail.com" class="btn-footer">
+              <i class="fas fa-rocket"></i> Contact Me
+            </a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; <span class="current-year">2026</span> Abd Alrahman Alsaadi. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
 
-    <!-- JS -->
-    <script>
-        // ===== Typing Animation =====
-       const typedTexts = [
-            "Software Engineer",
-            "Backend Developer",
-            "Laravel Developer",
-            "REST API Developer"
-        ];
-        let tIndex = 0;
-        let charIndex = 0;
-        const typedElement = document.getElementById("typed");
-
-        function type() {
-            if (tIndex >= typedTexts.length) tIndex = 0;
-            let current = typedTexts[tIndex];
-            typedElement.textContent = current.slice(0, charIndex++);
-            if (charIndex > current.length) {
-                charIndex = 0;
-                tIndex++;
-                setTimeout(type, 1500);
-            } else {
-                setTimeout(type, 150);
-            }
-        }
-        type();
-
-        // ===== ScrollReveal =====
-        ScrollReveal().reveal('.hero-text, .hero-img, .about-text, .about-card, .skill-card, .project-card, .contact-card', {
-            distance: '50px',
-            duration: 800,
-            easing: 'ease-out',
-            origin: 'bottom',
-            interval: 200
-        });
-
-        // ===== Particles.js =====
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 50 },
-                "size": { "value": 3 },
-                "color": { "value": "#7c3aed" },
-                "line_linked": { "enable": true, "distance": 150, "color": "#7c3aed", "opacity": 0.2, "width": 1 },
-                "move": { "enable": true, "speed": 2 }
-            }
-        });
-    </script>
-
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
